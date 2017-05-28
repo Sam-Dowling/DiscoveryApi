@@ -12,8 +12,11 @@ defmodule DiscoveryApi.ServiceResource do
   def to_json(%{params: params} = conn, state) do
 
     service = DiscoveryApi.Repo.get(params["id"])
-
-    {Poison.encode!(%Service{address: service.address, port: service.port, service: service.service}), conn, state}
+    if service do
+      {Poison.encode!(%Service{address: service.address, port: service.port, service: service.service}), conn, state}
+    else
+      {"{\"error\": \"invalid service or no services of that type are availiable.\"}", conn, state}
+    end
   end
 
 end
