@@ -1,13 +1,8 @@
-defmodule Service do
-  @derive [Poison.Encoder]
-  defstruct [:address, :port, :service]
-end
-
 defmodule DiscoveryApi.ServiceResource do
   use PlugRest.Resource
 
   def allowed_methods(conn, state) do
-    {["HEAD", "GET", "OPTIONS"], conn, state}
+    {["HEAD", "GET", "POST", "PUT", "OPTIONS"], conn, state}
   end
 
   def content_types_provided(conn, state) do
@@ -15,18 +10,10 @@ defmodule DiscoveryApi.ServiceResource do
   end
 
   def to_json(%{params: params} = conn, state) do
-    address = "127.0.0.1"
-    port = 5000
-    service_id = params["id"]
-    
-    {Poison.encode!(%Service{address: address, port: port, service: service_id}), conn, state}
+
+    service = DiscoveryApi.Repo.get(params["id"])
+
+    {Poison.encode!(%Service{address: service.address, port: service.port, service: service.service}), conn, state}
   end
 
-#   def to_json(%{params: params} = conn, state) do
-#     address = "127.0.0.1"
-#     port = 5000
-#     service_id = params["id"]
-#
-#     {"{\"address\": \"#{address}\", \"port\", \"#{port}\", \"service\": \"#{service_id}\"}", conn, state}
-#   end
 end
