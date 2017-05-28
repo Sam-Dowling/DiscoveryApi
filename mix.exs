@@ -15,6 +15,7 @@ defmodule DiscoveryApi.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
+    [applications: [:cowboy, :plug, :plug_rest, :poison]]
     [extra_applications: [:logger],
      mod: {DiscoveryApi.Application, []}]
   end
@@ -29,6 +30,9 @@ defmodule DiscoveryApi.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:cowboy, "~> 1.0.0"},
+       {:plug, "~> 1.3"},
+       {:plug_rest, "~> 0.12.0"},
+       {:poison, "~> 3.0"}]
   end
 end
