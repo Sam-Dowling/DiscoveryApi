@@ -31,4 +31,4 @@ curl 127.0.0.1:8000/services/CustomerApi => {"service":"CustomerApi", "port":500
 
 ### License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
