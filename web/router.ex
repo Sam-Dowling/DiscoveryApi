@@ -10,6 +10,6 @@ defmodule DiscoveryApi.Router do
 
     get "/services", ServiceController, :index
     get "/services/:id", ServiceController, :show
-    put "/services/:id", ServiceController, :create
+    post "/services/:id", ServiceController, :create
   end
 end
