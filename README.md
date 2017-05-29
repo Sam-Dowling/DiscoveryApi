@@ -1,34 +1,18 @@
-# Service Discovery API
+# DiscoveryApi
 
-A service that allows external containerized SaaS applications to register their instance with the server and allow other applications to discover these instances through a simple Rest interface.
+To start your Phoenix app:
 
-### Getting Started
+  * Install dependencies with `mix deps.get`
+  * Start Phoenix endpoint with `mix phoenix.server`
 
-Download and install [Elixir](https://elixir-lang.org/)
+Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-Install the dependencies by running ```mix deps.get``` and ```mix deps.compile```
+Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
 
-Compile the project and run it
+## Learn more
 
-```
-$ mix compile
-$ iex -S mix
-```
-
-The service should now be running on ```http://127.0.0.1:8000/```
-
-```
-curl 127.0.0.1:8000/heartbeat => 1495984356559000
-
-curl 127.0.0.1:8000/services/CustomerApi => {"service":"CustomerApi", "port":5000, "address":"127.0.0.1"}
-
-```
-
-## Built With
-
-* [Elixir](https://elixir-lang.org/) - A Functional language built on top of the Erlang VM
-* [PlugRest](https://github.com/christopheradams/plug_rest) - REST behaviour and Plug router for hypermedia web applications in Elixir
-
-### License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+  * Official website: http://www.phoenixframework.org/
+  * Guides: http://phoenixframework.org/docs/overview
+  * Docs: https://hexdocs.pm/phoenix
+  * Mailing list: http://groups.google.com/group/phoenix-talk
+  * Source: https://github.com/phoenixframework/phoenix
