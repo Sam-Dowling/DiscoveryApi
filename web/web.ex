@@ -28,6 +28,7 @@ defmodule DiscoveryApi.Web do
 
       import DiscoveryApi.Router.Helpers
       import DiscoveryApi.Gettext
+      import DiscoveryApi.Repo
     end
   end
 

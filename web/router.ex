@@ -5,7 +5,11 @@ defmodule DiscoveryApi.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", DiscoveryApi do
+  scope "/api/v1", DiscoveryApi do
     pipe_through :api
+
+    get "/services", ServiceController, :index
+    get "/services/:id", ServiceController, :show
+    put "/services/:id", ServiceController, :create
   end
 end

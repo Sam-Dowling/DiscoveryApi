@@ -17,7 +17,7 @@ defmodule DiscoveryApi.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {DiscoveryApi, []},
-     applications: [:phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext]]
+     applications: [:cachex, :phoenix, :phoenix_pubsub, :cowboy, :logger, :gettext]]
   end
 
   # Specifies which paths to compile per environment.
@@ -31,6 +31,7 @@ defmodule DiscoveryApi.Mixfile do
     [{:phoenix, "~> 1.2.4"},
      {:phoenix_pubsub, "~> 1.0"},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:cachex, "~> 2.1"}]
   end
 end

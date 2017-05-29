@@ -10,6 +10,8 @@ defmodule DiscoveryApi do
     children = [
       # Start the endpoint when the application starts
       supervisor(DiscoveryApi.Endpoint, []),
+
+      worker(Cachex, [:services, []]),
       # Start your own worker by calling: DiscoveryApi.Worker.start_link(arg1, arg2, arg3)
       # worker(DiscoveryApi.Worker, [arg1, arg2, arg3]),
     ]
