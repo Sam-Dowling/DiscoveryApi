@@ -33,7 +33,7 @@ Browse all the services being tracked
 GET 127.0.0.1:8000/services/MyService
   => {"address":"127.0.0.1", "port": 4000}
 ```
-Get the address of a service (if there is more than one entry for this service; a random instance will be returned)
+Get the address of a service (if there is more than one entry for this service; a random entry will be returned)
 
 ## Built With
 
@@ -45,6 +45,7 @@ Get the address of a service (if there is more than one entry for this service; 
 
 - Add heartbeats to keep listings up to date
 - better checking in the repo for duplicate instances
+- implement load balancing for getting a service instead of just picking randomly
 
 ### License
 
