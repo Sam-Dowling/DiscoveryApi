@@ -18,7 +18,7 @@ The server should now be running on `http://127.0.0.1:8000/`
 
 ## Getting Started
 ```
-POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:4000/api/v1/services/MyService
+POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:8000/api/v1/services/MyService
   => {"address":"127.0.0.1", "port": 4000}
 ```
 Register an instance of "MyService" at 127.0.0.1:4000 by POSTing the json object to /api/v1/services/MyService
