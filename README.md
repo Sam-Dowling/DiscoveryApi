@@ -18,10 +18,10 @@ The server should now be running on `http://127.0.0.1:8000/`
 
 ## Getting Started
 ```
-POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:8000/api/v1/services/MyService
-  => {"address":"127.0.0.1", "port": 4000}
+POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:8000/api/v1/services/MyService/EU
+  => {"address":"127.0.0.1", "port": 4000, "region": "EU"}
 ```
-Register an instance of "MyService" at 127.0.0.1:4000 by POSTing the json object to /api/v1/services/MyService
+Register an instance of "MyService" in the EU at 127.0.0.1:4000 by POSTing the JSON object to /api/v1/services/MyService/EU
 
 ```
 GET 127.0.0.1:8000/api/v1/services
@@ -31,9 +31,17 @@ Browse all the services being tracked
 
 ```
 GET 127.0.0.1:8000/api/v1/services/MyService
-  => {"address":"127.0.0.1", "port": 4000}
+  => ["EU"]
 ```
-Get the address of a service (if there is more than one entry for this service; a random entry will be returned)
+List all the regions with this service
+
+```
+GET 127.0.0.1:8000/api/v1/services/MyService/NA
+  => {"address":"127.0.0.1", "port": 4000, "region": "EU"}
+```
+- Get the address of a service.
+- If there is more than one entry for this service in the specified region; a random instance will be returned.
+- If there are no instances of the service in the specified region; another region will be picked.
 
 ## Built With
 
@@ -46,7 +54,7 @@ Get the address of a service (if there is more than one entry for this service; 
 - Add heartbeats to keep listings up to date
 - better checking in the repo for duplicate instances
 - implement load balancing for getting a service instead of just picking randomly
-- add the ability to host by region (eg. /api/v1/services/EU/MyService)
+- ~~add the ability to host by region (eg. /api/v1/services/EU/MyService)~~
 
 ### License
 
