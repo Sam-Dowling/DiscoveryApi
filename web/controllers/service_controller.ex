@@ -1,14 +1,18 @@
 defmodule DiscoveryApi.ServiceController do
   use DiscoveryApi.Web, :controller
 
-  def index(conn, _) do
-    {status, service} = DiscoveryApi.Repo.all()
-
+  def list(conn, _) do
+    {status, service} = DiscoveryApi.Repo.list_services()
     json conn_with_status(conn, status), service
   end
 
-  def show(conn, %{"id" => id}) do
-    {status, service} = DiscoveryApi.Repo.get(id)
+  def regions(conn, %{"id" => id}) do
+    {status, regions} = DiscoveryApi.Repo.list_regions(id)
+    json conn_with_status(conn, status), regions
+  end
+
+  def get(conn, %{"id" => id, "reg" => reg}) do
+    {status, service} = DiscoveryApi.Repo.get(id, reg)
     json conn_with_status(conn, status), service
   end
 

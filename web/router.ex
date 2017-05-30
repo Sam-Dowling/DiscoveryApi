@@ -8,14 +8,14 @@ defmodule DiscoveryApi.Router do
   scope "/api/v1", DiscoveryApi do
     pipe_through :api
 
-    get "/services", ServiceController, :index
-    get "/services/:id", ServiceController, :show
-    post "/services/:id", ServiceController, :create
+    # get "/services", ServiceController, :index
+    # get "/services/:id", ServiceController, :show
+    # post "/services/:id", ServiceController, :create
 
-    # get "/services", ServiceController, :regions # gets a list of regions
-    # get "/services/:reg", ServiceController, :index # gets a list of services from a region
-    # get "/services/:reg/:id", ServiceController, :show # gets an instance of a service (:id) from a region (:reg)
-    #
-    # post "/services/:reg/:id", ServiceController, :create # registers an instance of service (:id) for region (:reg)
+    get "/services", ServiceController, :list # gets a list of services
+    get "/services/:id", ServiceController, :regions # gets a list of regions for a service (:id)
+    get "/services/:id/:reg", ServiceController, :get # gets an instance of a service (:id) from a region (:reg)
+
+    post "/services/:id/:reg", ServiceController, :create # registers an instance of service (:id) for region (:reg)
   end
 end
