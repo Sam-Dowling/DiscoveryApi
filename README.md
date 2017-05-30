@@ -18,22 +18,22 @@ The server should now be running on `http://127.0.0.1:8000/`
 
 ## Getting Started
 ```
-POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:4000/api/v1/services/MyService
+POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:8000/api/v1/services/MyService
   => {"address":"127.0.0.1", "port": 4000}
 ```
 Register an instance of "MyService" at 127.0.0.1:4000 by POSTing the json object to /api/v1/services/MyService
 
 ```
-GET 127.0.0.1:8000/services
+GET 127.0.0.1:8000/api/v1/services
   => ["MyService"]
 ```
 Browse all the services being tracked
 
 ```
-GET 127.0.0.1:8000/services/MyService
+GET 127.0.0.1:8000/api/v1/services/MyService
   => {"address":"127.0.0.1", "port": 4000}
 ```
-Get the address of a service (if there is more than one entry for this service; a random instance will be returned)
+Get the address of a service (if there is more than one entry for this service; a random entry will be returned)
 
 ## Built With
 
@@ -45,6 +45,8 @@ Get the address of a service (if there is more than one entry for this service; 
 
 - Add heartbeats to keep listings up to date
 - better checking in the repo for duplicate instances
+- implement load balancing for getting a service instead of just picking randomly
+- add the ability to host by region (eg. /api/v1/services/EU/MyService)
 
 ### License
 
