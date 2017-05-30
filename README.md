@@ -46,6 +46,7 @@ Get the address of a service (if there is more than one entry for this service; 
 - Add heartbeats to keep listings up to date
 - better checking in the repo for duplicate instances
 - implement load balancing for getting a service instead of just picking randomly
+- add the ability to host by region (eg. /api/v1/services/EU/MyService)
 
 ### License
 
