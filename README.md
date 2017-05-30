@@ -24,13 +24,13 @@ POST {"address":"127.0.0.1", "port": 4000} -> http://127.0.0.1:8000/api/v1/servi
 Register an instance of "MyService" at 127.0.0.1:4000 by POSTing the json object to /api/v1/services/MyService
 
 ```
-GET 127.0.0.1:8000/services
+GET 127.0.0.1:8000/api/v1/services
   => ["MyService"]
 ```
 Browse all the services being tracked
 
 ```
-GET 127.0.0.1:8000/services/MyService
+GET 127.0.0.1:8000/api/v1/services/MyService
   => {"address":"127.0.0.1", "port": 4000}
 ```
 Get the address of a service (if there is more than one entry for this service; a random entry will be returned)
